@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * xTrue 设计系统 — Warm Breeze 暖风风格
+ * 核心视觉：认同度环形图 + 层级 Badge + 暖珊瑚主色
+ */
+
+@layer base {
+  :root {
+    /* 背景系 — 暖奶油色 */
+    --background: 36 40% 97%;
+    --foreground: 30 8% 15%;
+
+    /* 卡片 — 纯白 */
+    --card: 0 0% 100%;
+    --card-foreground: 30 8% 15%;
+
+    /* 主色：暖珊瑚 */
+    --primary: 6 78% 62%;
+    --primary-foreground: 0 0% 100%;
+
+    /* 次要 — 暖浅色 */
+    --secondary: 36 30% 94%;
+    --secondary-foreground: 30 8% 15%;
+
+    /* 静音 */
+    --muted: 36 20% 94%;
+    --muted-foreground: 30 6% 55%;
+
+    /* 强调：暖琥珀 */
+    --accent: 28 100% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --border: 36 15% 90%;
+    --input: 36 15% 90%;
+    --ring: 6 78% 62%;
+
+    --radius: 0.75rem;
+
+    /* 认同度色阶 */
+    --score-low: 0 78% 62%;
+    --score-mid: 35 92% 52%;
+    --score-high: 160 70% 42%;
+
+    /* 层级色 */
+    --lv0: 30 10% 60%;
+    --lv1: 220 70% 60%;
+    --lv2: 160 65% 45%;
+    --lv3: 200 75% 50%;
+    --lv4: 6 78% 62%;
+    --lv5: 35 93% 47%;
+
+    /* 品类色 */
+    --cat-movie: 280 65% 62%;
+    --cat-product: 200 75% 55%;
+    --cat-food: 25 85% 56%;
+    --cat-leisure: 160 65% 45%;
+  }
+
+  .dark {
+    --background: 30 8% 8%;
+    --foreground: 36 30% 94%;
+
+    --card: 30 8% 12%;
+    --card-foreground: 36 30% 94%;
+
+    --primary: 6 70% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 30 10% 18%;
+    --secondary-foreground: 36 30% 94%;
+
+    --muted: 30 10% 18%;
+    --muted-foreground: 30 10% 60%;
+
+    --accent: 28 90% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --border: 30 10% 20%;
+    --input: 30 10% 20%;
+    --ring: 6 70% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* 自动纵向滚动（无缝循环） */
+@keyframes scroll-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.animate-scroll-up {
+  animation: scroll-up 30s linear infinite;
+}
+
+.animate-scroll-up:hover {
+  animation-play-state: paused;
+}
+
+/* 暖风气泡浮动 */
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6s ease-in-out 2s infinite;
+}
+
+.animate-float-slow {
+  animation: float 8s ease-in-out 1s infinite;
+}
+
+/* 卡片入场 — 交错淡入上浮 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+/* 呼吸脉冲 */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+/* 横向滚动隐藏滚动条 */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

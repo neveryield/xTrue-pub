@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+.next/
+
+#原型文件
+prototypes/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+out/
+dist/
+
+# Playwright test artifacts
+.playwright-mcp/
+
+# Misc
+*.tsbuildinfo
+next-env.d.ts
